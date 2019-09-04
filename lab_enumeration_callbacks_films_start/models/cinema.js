@@ -10,11 +10,32 @@ Cinema.prototype.filmTitles = function () {
 };
 
 
-//reckon we will be using a filter method. we could use find (in which case, the test would not include an array. But find only finds one object.)
 Cinema.prototype.findByTitle = function (title) {
-  return this.films.filter((film => film.title === title)
-)
+  return this.films.find(film => film.title === title)
 // return foundFilm
 };
+
+
+Cinema.prototype.findByGenre = function (genre) {
+  return this.films.filter(film => film.genre === genre)
+};
+
+Cinema.prototype.filmsFromYear = function (year) {
+  return this.films.some((film) => {
+    return film.year === year
+  })
+}
+
+Cinema.prototype.filmsOverLengthOfTime = function (length) {
+  return this.films.every((film) => {
+    return film.length > length
+  })
+}
+
+Cinema.prototype.totalRunTimeOfAllFilms = function () {
+  let total = this.films.reduce
+}
+
+
 
 module.exports = Cinema;
