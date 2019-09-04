@@ -33,7 +33,11 @@ Cinema.prototype.filmsOverLengthOfTime = function (length) {
 }
 
 Cinema.prototype.totalRunTimeOfAllFilms = function () {
-  let total = this.films.reduce
+  const films = this.films.map(film => film.length);
+  let total = films.reduce((runningTotal, film) => {
+    return runningTotal + film;
+  })
+  return total
 }
 
 
